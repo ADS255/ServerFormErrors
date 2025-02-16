@@ -1,0 +1,30 @@
+{
+  "name": "server-form-errors",
+  "version": "1.0.0",
+  "description": "A lightweight library for handling and displaying server-side validation errors in client-side forms. Automatically updates form fields with relevant error messages based on validation responses, streamlining form submissions and enhancing user experience.",
+  "main": "ServerFormErrors.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ADS255/ServerFormErrors.git"
+  },
+  "keywords": [
+    "form-validation",
+    "server-side-validation",
+    "client-side-errors",
+    "form-errors",
+    "error-messages",
+    "validation-errors",
+    "client-side-form-validation",
+    "form-helper",
+    "front-end-validation"
+  ],
+  "author": "ADS255",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ADS255/ServerFormErrors/issues"
+  },
+  "homepage": "https://github.com/ADS255/ServerFormErrors#readme"
+}

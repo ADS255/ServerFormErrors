@@ -5,6 +5,8 @@ class ServerFormErrors {
     this.form = document.querySelector(formSelector);
 
     if (!this.form) return;
+
+    this.initFormInputs();
   }
 
   handleErrors(errors) {
@@ -16,6 +18,8 @@ class ServerFormErrors {
       .querySelectorAll(".sfe-error-message")
       .forEach((el) => el.remove());
 
+    let firstElementFocused = false;
+
     Object.entries(errors).forEach(([field, message]) => {
       let input = this.form.querySelector(`[name="${field}"]`);
       if (input) {
@@ -26,7 +30,28 @@ class ServerFormErrors {
         span.textContent = message;
 
         input.parentNode.insertBefore(span, input.nextSibling);
+
+        if (!firstElementFocused) {
+          input.focus();
+          firstElementFocused = true;
+        }
       }
+    });
+  }
+
+  initFormInputs() {
+    const inputs = Array.from(
+      this.form.querySelectorAll("input, textarea, select")
+    );
+
+    if (inputs.length === 0) return;
+
+    inputs.forEach((input) => {
+      const wrapper = document.createElement("div");
+      wrapper.style.display = "flex";
+      wrapper.style.flexDirection = "column";
+      input.parentNode.insertBefore(wrapper, input);
+      wrapper.appendChild(input);
     });
   }
 }

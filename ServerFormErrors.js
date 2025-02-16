@@ -1,20 +1,23 @@
 class ServerFormErrors {
   static defaultConfig = {};
 
-  static initForm(formSelector) {}
+  constructor(formSelector) {
+    this.form = document.querySelector(formSelector);
 
-  static handleErrors(formSelector, errors) {
-    const form = document.querySelector(formSelector);
-    if (!form) return;
+    if (!this.form) return;
+  }
 
-    form
+  handleErrors(errors) {
+    this.form
       .querySelectorAll(".sfe-error")
       .forEach((el) => el.classList.remove("sfe-error"));
 
-    form.querySelectorAll(".sfe-error-message").forEach((el) => el.remove());
+    this.form
+      .querySelectorAll(".sfe-error-message")
+      .forEach((el) => el.remove());
 
     Object.entries(errors).forEach(([field, message]) => {
-      let input = form.querySelector(`[name="${field}"]`);
+      let input = this.form.querySelector(`[name="${field}"]`);
       if (input) {
         input.classList.add("sfe-error");
 
